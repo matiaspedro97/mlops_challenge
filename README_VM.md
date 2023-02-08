@@ -168,11 +168,11 @@ Check if the service is running by doing:
 systemctl --type=service --state=running
 ```
 
-In case it actually shows up in the list of services running on the EC2-AWS instance, 
+In case it actually shows up in the list of services running on the EC2-AWS VM instance, 
 then you're done. The API is running and you can shutdown your terminal without concerns.
 
 -------
 # Try it out
-Access the following link and check and does the API look
+Access the following link and check how does the API look like
 
 [KeyStroke API](http://54.171.118.44:5000/docs)

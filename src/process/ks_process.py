@@ -32,8 +32,8 @@ class KeyStrokeExtractor:
         # Compute all time differences
         time_diffs = aux_data.diff(axis=1).to_numpy()[:, 1:]
 
-        # Hold time (grab times every 2 actions starting from the 1st diff), 
-        # Release-Press time (grab times every 2 actions starting from the 2nd diff)
+        # Hold time (grab time every 2 keystrokes starting from the 1st diff), 
+        # Release-Press time (grab time every 2 keystrokes starting from the 2nd diff)
         ht, rpt = time_diffs[:, ::2], time_diffs[:, 1::2]
         
         # Press-Press time (sum even HT indices and RPT), Release-Release time (sum odd HT indices and RPT)
@@ -45,10 +45,10 @@ class KeyStrokeExtractor:
         y_true, (ht, rpt, ppt, rrt) = self.extract_features()
 
         # Mean and STD aggregates
-        ht_agg = self.get_stat_aggregates(feature=ht, name='ht', axis=1)
-        rpt_agg = self.get_stat_aggregates(feature=rpt, name='rpt', axis=1)
-        ppt_agg = self.get_stat_aggregates(feature=ppt, name='ppt', axis=1)
-        rrt_agg = self.get_stat_aggregates(feature=rrt, name='rrt', axis=1)
+        ht_agg = self.get_stat_aggregates(feature=ht, name='ht', axis=1)  # hold time
+        rpt_agg = self.get_stat_aggregates(feature=rpt, name='rpt', axis=1)  # release-to-press time
+        ppt_agg = self.get_stat_aggregates(feature=ppt, name='ppt', axis=1)  # press-to-press time
+        rrt_agg = self.get_stat_aggregates(feature=rrt, name='rrt', axis=1)  # release-to-release time
 
         # Build feature dataset
         feat_df = pd.concat([ht_agg, ppt_agg, rrt_agg, rpt_agg], axis=1)
