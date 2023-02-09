@@ -10,6 +10,8 @@ Project structure
 |   LICENSE
 |___data
 |   |   Train_keystroke.csv
+|   docs
+|   |   aws_diagram.pdf
 |___models
 |   |   <model_name>_<version>.pkl
 |___notebooks
@@ -133,3 +135,15 @@ Note: Don't forget to activate your **prod** environment (generated through *req
 # AWS EC2
 
 In case you want to run this on a public instance and serve the API through a public url, follow the **README_VM.md** step guide
+
+<br>
+
+---
+# Deliverables
+Please take a look at the deliverables:
+
+- **README.md**: a comprehensive description of the whole set of modules of this project;
+- **README_VM.md**: a step-by-step guide for running the API inside an AWS Cloud instance;
+- **docs/aws_diagram.pdf**: a diagram explaining the API workflow on the cloud server;
+- **notebook/run_ks_tran_models.ipynb**: a notebook containing some visualization of the provided dataset and some observations over the extracted features.
+

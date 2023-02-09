@@ -1,3 +1,9 @@
+# EC2 VM Instance
+After launching a VM instance on AWS EC2, you can use your ssh-key or the browser 'Connect' to get inside. The following steps will help you serving the API developed previously and expose it through a public URL.
+
+<br>
+
+---
 ## Install git and update yum
 
 ```
