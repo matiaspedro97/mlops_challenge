@@ -165,6 +165,11 @@ This API has the following endpoints:
 
 In case you want to run this on a public instance and serve the API through a public url, follow the **README_VM.md** step guide
 
+I already have an API running on an AWS EC2 instance. 
+
+Please feel free to try it:
+[KeyStroke API](http://54.171.118.44:5000/docs) 
+
 <br>
 
 ---
