@@ -129,6 +129,35 @@ python uvicorn src.api.api:app --workers 4
 
 Note: Don't forget to activate your **prod** environment (generated through *requirements/requirements-prod.txt* file)
 
+### API Endpoints
+This API has the following endpoints:
+- **/** : Initial information
+- **/api/models/{model}_{version}**: provides the test results of a model, given its name and version (e.g., RF model, version 2)
+- **/api/predict_file**: it returns the user prediction given a JSON/Text file with the necessary fields for inference (see the example below)
+- **/api/predict_direct**: it returns the same user prediction but through a direct input of the abovementioned fields (see the example below)
+
+```bash
+{
+  "Model": "SVM",
+  "HT": {
+    "Mean": 48.43,
+    "STD": 23.34
+  },
+  "PPT": {
+    "Mean": 120.43,
+    "STD": 37.41
+  },
+  "RRT": {
+    "Mean": 124.43,
+    "STD": 45.34
+  },
+  "RPT": {
+    "Mean": 132.56,
+    "STD": 47.12
+  }
+}
+```
+
 <br>
 
 ---
