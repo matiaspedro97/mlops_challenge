@@ -6,7 +6,8 @@ from src.constants import MODEL_PATH
 
 class KeyStrokeInference:
     def __init__(self) -> None:
-        self.pred = []
+        # Nothing to add
+        pass
         
     def get_model_from_dict(self, config: dict):
         m_name = config.get('Model')
@@ -27,8 +28,9 @@ class KeyStrokeInference:
     
     def get_inference_from_dict(self, config: dict):
         model, features = self.get_features_from_dict(config)
-        self.pred.append(model.predict(features))
-        return {'UserID': self.pred[-1]}
+        pred = model.predict(features)
+        print(pred)
+        return {'UserID': int(pred[0])}
 
         
 

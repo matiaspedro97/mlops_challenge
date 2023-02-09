@@ -44,23 +44,25 @@ async def model_info(model: str, version: int) -> dict:
     return res
 
 @app.post("/api/predict_file")
-async def predict_user(file: UploadFile = File(...)):
+async def predict_file(file: UploadFile = File(...)):
     config = json.load(file.file)
     infer = KeyStrokeInference()
-    pred_lbl, features = infer.get_inference_from_dict(config)
-    return pred_lbl, features
+    pred_lbl = infer.get_inference_from_dict(config)
+    return pred_lbl
 
 
 @app.post("/api/predict_direct")
-async def predict_user(item: Item) -> dict:
+async def predict_direct(item: Item) -> dict:
     # Config JSON
     config = item.dict()
-
+    print(config)
+    print(type(config))
     # Inference
     infer = KeyStrokeInference()
-    features = infer.get_inference_from_dict(config)
+    pred_lbl = infer.get_inference_from_dict(config)
+    print(pred_lbl)
 
-    return features.to_dict()
+    return pred_lbl
 
 
 if __name__ == '__main__':
